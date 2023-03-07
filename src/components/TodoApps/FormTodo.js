@@ -3,12 +3,7 @@ import ShowTodo from './showTodo/ShowTodo';
 import { useState } from 'react';
 
 const FormTodo = () => {
-  const [listTodo, setListTodo] = useState([
-    {
-      id: 1,
-      content: "check"
-    }
-  ]);
+  const [listTodo, setListTodo] = useState([]);
 
   const [todo, setTodo] = useState('');
 
@@ -22,7 +17,7 @@ const FormTodo = () => {
   }
 
   return (
-    <form className='formTodo'>
+    <form className='formTodo' style={{height: '100%'}}>
       <div className="mb-3 formTodo-form_inp">
         <input onChange={(event) => handleOnChange(event)} value={todo} type="text" className="htmlForm-control inp" id="exampleInputEmail1" aria-describedby="emailHelp" style={{borderRadius: '20px'}} />
       </div>
