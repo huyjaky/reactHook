@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 const ShowTodo = (props) => {
   let listTodo = props.listTodo;
+
+  const handleDelete = (todo) => {
+    props.handleDelete(todo);
+  }
   return (
     <div>
       {listTodo.length > 0 && listTodo.map((item, index) => {
@@ -15,7 +19,8 @@ const ShowTodo = (props) => {
               </div>
             </div>
             <div className="listBtn">
-              <button className="btn btn-primary">btn</button>
+              <button type='button' className="btn btn-primary" style={{marginRight: '20px'}}>Edit</button>
+              <button type='button' className="btn btn-primary" onClick={() => handleDelete(item)}>Delete</button>
             </div>
           </div>
         )
@@ -31,5 +36,6 @@ ShowTodo.propTypes = {
       id: PropTypes.number,
       content: PropTypes.string
     })
-  )
+  ),
+  handleDelete: PropTypes.func
 }
