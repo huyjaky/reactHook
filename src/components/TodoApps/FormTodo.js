@@ -14,9 +14,9 @@ const FormTodo = () => {
         item.content = todo.content;
       }
       return item;
-    })
-    setListTodo(listTodo_)
-  }
+    });
+    setListTodo(listTodo_);
+  };
 
   const handleDelete = (todo_) => {
     let listTodo_ = listTodo.filter((item) => item.id !== todo_.id);
@@ -52,7 +52,9 @@ const FormTodo = () => {
         </button>
       </div>
       <hr />
-      <ShowTodo listTodo={listTodo} handleDelete={handleDelete}
+      <ShowTodo
+        listTodo={listTodo}
+        handleDelete={handleDelete}
         handleChangeTodo={handleChangeTodo}
       />
     </form>

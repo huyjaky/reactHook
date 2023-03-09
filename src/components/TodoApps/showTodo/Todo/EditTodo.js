@@ -5,15 +5,15 @@ const EditTodo = (props) => {
 
   const handleDelete = (item) => {
     props.handleDelete(item);
-  }
+  };
 
   const handleOffEdit = () => {
     props.handleOffEdit();
-  }
+  };
 
   const handleOnChange = (event) => {
     props.handleOnChange(event.target.value);
-  }
+  };
 
   return (
     <>
@@ -30,22 +30,21 @@ const EditTodo = (props) => {
         />
       </div>
       <div className="listBtn">
-        <button type="button" className="btn btn-primary" style={{ marginRight: '20px' }}
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ marginRight: '20px' }}
           onClick={() => handleOffEdit()}
         >
           Enter
         </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => handleDelete(item)}
-        >
+        <button type="button" className="btn btn-primary" onClick={() => handleDelete(item)}>
           Delete
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default EditTodo;
 
@@ -62,4 +61,4 @@ EditTodo.propTypes = {
     id: PropTypes.number,
     content: PropTypes.string
   })
-}
+};

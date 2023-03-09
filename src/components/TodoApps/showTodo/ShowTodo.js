@@ -14,12 +14,12 @@ const ShowTodo = (props) => {
       id: editTodo.id,
       content: item
     });
-  }
+  };
 
   const handleOffEdit = () => {
     setEditConfig(false);
     props.handleChangeTodo(editTodo);
-  }
+  };
 
   const handleEditTodo = (item) => {
     setEditConfig(true);
@@ -35,25 +35,32 @@ const ShowTodo = (props) => {
         listTodo.map((item, index) => {
           return (
             <div className="showTodo" key={index} style={{ marginBottom: '10px' }}>
-              {editConfig === true ?
-                item.id === editTodo.id ?
-                  <EditTodo item={item} index={index}
+              {editConfig === true ? (
+                item.id === editTodo.id ? (
+                  <EditTodo
+                    item={item}
+                    index={index}
                     handleDelete={handleDelete}
                     handleOffEdit={handleOffEdit}
                     editTodo={editTodo}
                     handleOnChange={handleOnChange}
                   />
-                  :
-                  <Todo item={item} index={index}
+                ) : (
+                  <Todo
+                    item={item}
+                    index={index}
                     handleDelete={handleDelete}
                     handleEditTodo={handleEditTodo}
                   />
-                :
-                <Todo item={item} index={index}
+                )
+              ) : (
+                <Todo
+                  item={item}
+                  index={index}
                   handleDelete={handleDelete}
                   handleEditTodo={handleEditTodo}
                 />
-              }
+              )}
             </div>
           );
         })}

@@ -1,57 +1,61 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { SpinnerCircular, SpinnerCircularSplit } from 'spinners-react';
 
 
-const showCovid19 = (props) => {
+const ShowCovid19 = (props) => {
   const [dataCovid, setDataCovid] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     try {
       let res = await axios.get('https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.');
       let data = res.data.locations;
-      console.log('count');
+      setDataCovid(data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
+    setIsLoading(true);
     fetchData();
   }, []);
 
-  console.log(dataCovid);
+  if (isLoading) {
+    return <div>
+      <SpinnerCircularSplit size="70%"/>
+    </div>;
+  }
 
   return (
     <table className="table table-dark table-striped-columns">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">City</th>
+          <th scope="col">Deaths</th>
+          <th scope="col">Cases</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        { dataCovid.length > 0 &&
+          dataCovid.map((item, index) => {
+            return (
+              <tr key={index}>
+                <th scope="row">{index + 1}</th>
+                <td>{item.name}</td>
+                <td>{item.death}</td>
+                <td>{item.cases}</td>
+              </tr>
+            )
+          })
+        }
       </tbody>
     </table>
   )
 }
 
-export default showCovid19;
+export default ShowCovid19;

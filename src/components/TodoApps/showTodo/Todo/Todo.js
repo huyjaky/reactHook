@@ -4,11 +4,11 @@ const Todo = (props) => {
   const [item, index] = [props.item, props.index];
   const handleDelete = (item) => {
     props.handleDelete(item);
-  }
+  };
 
   const handleEditTodo = (item) => {
     props.handleEditTodo(item);
-  }
+  };
 
   return (
     <>
@@ -17,22 +17,21 @@ const Todo = (props) => {
         <div className="content-primary">{item.content}</div>
       </div>
       <div className="listBtn">
-        <button type="button" className="btn btn-primary" style={{ marginRight: '20px' }}
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{ marginRight: '20px' }}
           onClick={() => handleEditTodo(item)}
         >
           Edit
         </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => handleDelete(item)}
-        >
+        <button type="button" className="btn btn-primary" onClick={() => handleDelete(item)}>
           Delete
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Todo;
 
@@ -45,5 +44,4 @@ Todo.propTypes = {
   handleDelete: PropTypes.func,
   handleEditTodo: PropTypes.func,
   handleOnChange: PropTypes.func
-
-}
+};

@@ -15,8 +15,8 @@ function App() {
           <Routes>
             <Route path='/todoapp' element={<FormTodo />}/>
             {/* <Route path='/covid19' element={} /> */}
+            <Route path='/covid19' element={<ShowCovid19 />} />
           </Routes>
-          <ShowCovid19 />
         </header>
       </div>
     </BrowserRouter>
