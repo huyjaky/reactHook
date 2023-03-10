@@ -1,32 +1,15 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import useFetch from "../fetchDataCovid/fetchData";
 import { SpinnerCircular, SpinnerCircularSplit } from 'spinners-react';
 
 
 const ShowCovid19 = (props) => {
-  const [dataCovid, setDataCovid] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = async () => {
-    try {
-      let res = await axios.get('https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.');
-      let data = res.data.locations;
-      setDataCovid(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchData();
-  }, []);
+  // https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.
+  const { data: dataCovid, isLoading } = useFetch('https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.');
 
   if (isLoading) {
     return <div>
-      <SpinnerCircularSplit size="70%"/>
+      <SpinnerCircularSplit size="70%" />
     </div>;
   }
 
@@ -41,7 +24,7 @@ const ShowCovid19 = (props) => {
         </tr>
       </thead>
       <tbody>
-        { dataCovid.length > 0 &&
+        {dataCovid && dataCovid.length > 0 &&
           dataCovid.map((item, index) => {
             return (
               <tr key={index}>
