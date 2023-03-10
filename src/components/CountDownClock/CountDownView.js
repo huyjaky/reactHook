@@ -5,6 +5,7 @@ const CountDownview = () => {
 
 
   useEffect(() => {
+
     if (count === 0) {
       return;
     }
@@ -14,12 +15,12 @@ const CountDownview = () => {
     return () => {
       clearInterval(timer)
     }
+
   }, [count])
 
   return (
     <div>
       {count}
-
     </div>
   )
 }
