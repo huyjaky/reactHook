@@ -23,13 +23,18 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/covid19" activeClassName="active" className="nav-link">
+                <NavLink to="/covid19" activeclassname="active" className="nav-link">
                   Covid19 API
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/todoapp" activeClassName="active" className="nav-link">
+                <NavLink to="/todoapp" activeclassname="active" className="nav-link">
                   Todo App
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/countdownclock" activeclassname="active" className="nav-link">
+                  countdownclock
                 </NavLink>
               </li>
             </ul>

@@ -4,6 +4,7 @@ import Nav from './components/nav/Nav';
 import FormTodo from './components/TodoApps/FormTodo';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ShowCovid19 from './components/Covid19/ShowCovid19';
+import CountDownview from './components/CountDownClock/CountDownView';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/todoapp' element={<FormTodo />}/>
             {/* <Route path='/covid19' element={} /> */}
             <Route path='/covid19' element={<ShowCovid19 />} />
+            <Route path='/countdownclock' element={<CountDownview />} />
           </Routes>
         </header>
       </div>
