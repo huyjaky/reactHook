@@ -1,16 +1,20 @@
-import useFetch from "../fetchDataCovid/fetchData";
+import useFetch from '../fetchDataCovid/fetchData';
 import { SpinnerCircular, SpinnerCircularSplit } from 'spinners-react';
-
+import './Style.scss';
+import { Link } from 'react-router-dom';
 
 const ShowCovid19 = (props) => {
-
   // https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.
-  const { data: dataCovid, isLoading } = useFetch('https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.');
+  const { data: dataCovid, isLoading } = useFetch(
+    'https://api.apify.com/v2/key-value-stores/EaCBL1JNntjR3EakU/records/LATEST?disableRedirect=true.'
+  );
 
   if (isLoading) {
-    return <div>
-      <SpinnerCircularSplit size="70%" />
-    </div>;
+    return (
+      <div>
+        <SpinnerCircularSplit size="70%" />
+      </div>
+    );
   }
 
   return (
@@ -24,21 +28,45 @@ const ShowCovid19 = (props) => {
         </tr>
       </thead>
       <tbody>
-        {dataCovid && dataCovid.length > 0 &&
+        {dataCovid &&
+          dataCovid.length > 0 &&
           dataCovid.map((item, index) => {
             return (
               <tr key={index}>
-                <th scope="row">{index + 1}</th>
-                <td>{item.name}</td>
-                <td>{item.death}</td>
-                <td>{item.cases}</td>
+                <th scope="row">
+                  <Link to={`/covid19/${item.name}`}>
+                    <button type='button'>
+                      {index}
+                    </button>
+                  </Link>
+                </th>
+                <th scope="row">
+                  <Link to={`/covid19/${item.name}`}>
+                    <button type='button'>
+                      {item.name}
+                    </button>
+                  </Link>
+                </th>
+                <th scope="row">
+                  <Link to={`/covid19/${item.name}`}>
+                    <button type='button'>
+                      {item.death}
+                    </button>
+                  </Link>
+                </th>
+                <th scope="row">
+                  <Link to={`/covid19/${item.name}`}>
+                    <button type='button'>
+                      {item.cases}
+                    </button>
+                  </Link>
+                </th>
               </tr>
-            )
-          })
-        }
+            );
+          })}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default ShowCovid19;

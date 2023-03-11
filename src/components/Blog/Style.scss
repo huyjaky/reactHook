@@ -1,0 +1,29 @@
+.root--panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .root--panel__item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .root--panel__item {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .root--panel__item {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.root--panel__item>* {
+  width: 100%;
+  margin: auto;
+  border: 2px solid black;
+}
