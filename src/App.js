@@ -20,7 +20,7 @@ function App() {
             {/* <Route path='/covid19' element={} /> */}
             <Route path="/covid19" element={<ShowCovid19 />} />
             <Route path="/countdownclock" element={<CountDownview />} />
-            <Route path='/covid19/:city' element={<Detail />} />
+            <Route path="/covid19/:city" element={<Detail />} />
           </Routes>
           <Blog />
         </header>

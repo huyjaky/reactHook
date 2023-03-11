@@ -9,13 +9,13 @@
     flex-wrap: wrap;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .root--panel__item {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     .root--panel__item {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -24,6 +24,19 @@
 
 .root--panel__item>* {
   width: 100%;
+  height: 100%;
   margin: auto;
   border: 2px solid black;
+}
+
+.card-post {
+  .title {
+    height: 10%;
+  }
+  .body {
+    height: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

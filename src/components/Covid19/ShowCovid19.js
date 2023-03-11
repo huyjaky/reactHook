@@ -1,4 +1,4 @@
-import useFetch from '../fetchDataCovid/fetchData';
+import useFetch from '../fetchData/fetchData';
 import { SpinnerCircular, SpinnerCircularSplit } from 'spinners-react';
 import './Style.scss';
 import { Link } from 'react-router-dom';
@@ -35,30 +35,22 @@ const ShowCovid19 = (props) => {
               <tr key={index}>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type='button'>
-                      {index}
-                    </button>
+                    <button type="button">{index}</button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type='button'>
-                      {item.name}
-                    </button>
+                    <button type="button">{item.name}</button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type='button'>
-                      {item.death}
-                    </button>
+                    <button type="button">{item.death}</button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type='button'>
-                      {item.cases}
-                    </button>
+                    <button type="button">{item.cases}</button>
                   </Link>
                 </th>
               </tr>

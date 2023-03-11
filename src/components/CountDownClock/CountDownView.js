@@ -21,7 +21,6 @@ const CountDownview = () => {
   };
 
   useEffect(() => {
-
     if (count === 0) {
       return;
     }
