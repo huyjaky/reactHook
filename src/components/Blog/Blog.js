@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SpinnerCircularSplit } from 'spinners-react';
 import useFetch from '../fetchData/fetchData';
@@ -5,7 +6,13 @@ import ModalBlog from './modal/ModalBlog';
 import './Style.scss';
 
 const Blog = () => {
+  const [posts, setPosts] = useState([]);
+
   const { data: post, isLoading } = useFetch('https://jsonplaceholder.typicode.com/posts');
+
+  useEffect(() => {
+    setPosts(post);
+  }, [posts])
 
   if (isLoading) {
     return (
@@ -15,6 +22,12 @@ const Blog = () => {
     );
   }
 
+  const addBlog = (Blog) => {
+    let blog = posts;
+    blog.unshift(Blog);
+    setPosts(blog);
+  }
+
   return (
     <div className="root--panel">
       <h1>Post</h1>
@@ -22,7 +35,7 @@ const Blog = () => {
       <ModalBlog />
 
       <div className="root--panel__item">
-        {post.map((item, index) => {
+        {posts.map((item, index) => {
           return (
             <div className="card-class card text-bg-dark mb-3" key={index}>
               <h5 className="card-header" style={{ margin: '10px' }}>
