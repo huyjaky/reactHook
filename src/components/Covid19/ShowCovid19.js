@@ -28,9 +28,9 @@ const ShowCovid19 = (props) => {
         </tr>
       </thead>
       <tbody>
-        {dataCovid &&
-          dataCovid.length > 0 &&
-          dataCovid.map((item, index) => {
+        {dataCovid.locations &&
+          dataCovid.locations.length > 0 &&
+          dataCovid.locations.map((item, index) => {
             return (
               <tr key={index}>
                 <th scope="row">

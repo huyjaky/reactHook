@@ -29,14 +29,33 @@
   border: 2px solid black;
 }
 
-.card-post {
-  .title {
-    height: 10%;
-  }
-  .body {
-    height: 60%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.card-class {
+  scale: 0.8;
+
+  .card-post {
+    .title {
+      height: 40%;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .body {
+      height: 30%;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .card-class__btn {
+      display: flex;
+      justify-content: center;
+      .btn-detail {
+        width: 20%;
+
+      }
+    }
   }
 }

@@ -8,8 +8,7 @@ const useFetch = (url) => {
   const fetchData = async () => {
     try {
       let res = await axios.get(url);
-      let data = res.data.locations;
-      console.log('count');
+      let data = res.data;
       setData(data);
     } catch (error) {
       console.error(error);

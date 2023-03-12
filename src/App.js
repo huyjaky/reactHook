@@ -7,6 +7,7 @@ import ShowCovid19 from './components/Covid19/ShowCovid19';
 import CountDownview from './components/CountDownClock/CountDownView';
 import Detail from './components/Covid19/CityDetail/Detail';
 import Blog from './components/Blog/Blog';
+import BlogDetail from './components/Blog/BlogDetail/BlogDetail';
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
             <Route path="/covid19" element={<ShowCovid19 />} />
             <Route path="/countdownclock" element={<CountDownview />} />
             <Route path="/covid19/:city" element={<Detail />} />
+            <Route path='/blog' element={<Blog />} />
+            <Route path='/blog/:id' element={<BlogDetail />} />
           </Routes>
-          <Blog />
         </header>
       </div>
     </BrowserRouter>

@@ -1,29 +1,11 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SpinnerCircularSplit } from 'spinners-react';
 import useFetch from '../fetchData/fetchData';
 import './Style.scss';
 
 const Blog = () => {
-  const [post, setPost] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
-    try {
-      const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      const data = res.data;
-      console.log('count');
-      setPost(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const {data: post, isLoading} = useFetch('https://jsonplaceholder.typicode.com/posts');
 
   if (isLoading) {
     return (
@@ -35,21 +17,24 @@ const Blog = () => {
 
   return (
     <div className="root--panel">
+      <h1>
+        Post
+      </h1>
       <div className="root--panel__item">
         {post.map((item, index) => {
           return (
-            <div className="card text-bg-dark mb-3" key={index}>
-              <h5 className="card-header">Featured</h5>
+            <div className="card-class card text-bg-dark mb-3" key={index}>
+              <h5 className="card-header" style={{ margin: '10px' }}>Featured</h5>
               <div className="card-post card-body">
-                <h5 className="title card-title">{item.title}</h5>
+                <div className="title card-title">
+                  {item.title}
+                </div>
                 <div className='body'>
-
-                  {/* <p className="card-text">{item.body}</p> */}
                   {item.body}
                 </div>
-                <div >
-                  <button>check</button>
-                </div>
+                <Link to={`/blog/${item.id}`} className='card-class__btn'>
+                  <button type='button' className='btn-detail btn btn-primary'>Detail</button>
+                </Link>
               </div>
             </div>
           );

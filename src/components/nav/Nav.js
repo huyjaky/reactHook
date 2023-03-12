@@ -34,7 +34,12 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <NavLink to="/countdownclock" activeclassname="active" className="nav-link">
-                  countdownclock
+                  Count Down Clock
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/blog" activeclassname="active" className="nav-link">
+                  Blog
                 </NavLink>
               </li>
             </ul>
