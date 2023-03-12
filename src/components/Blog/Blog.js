@@ -21,7 +21,7 @@ const Blog = () => {
       </div>
     );
   }
-  console.log('check');
+  console.log('checkasdfasdf');
 
   const addBlog = (Blog) => {
     let blog = posts;
