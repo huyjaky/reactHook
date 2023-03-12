@@ -14,6 +14,7 @@ const Blog = () => {
       </div>
     );
   }
+  console.log('check');
 
   return (
     <div className="root--panel">
