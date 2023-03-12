@@ -11,7 +11,6 @@ const ModalBlog = () => {
       >
         Launch demo modal
       </button>
-
       <div
         className="modal modal-dark fade"
         id="exampleModal"
@@ -36,14 +35,6 @@ const ModalBlog = () => {
               <div>
                 <AddBlog />
               </div>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
             </div>
           </div>
         </div>
