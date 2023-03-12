@@ -40,7 +40,12 @@ const AddBlog = () => {
         ></textarea>
       </div>
       <div className="mb-3" style={{ width: '100%' }}>
-        <button className="btn btn-primary" type="button" style={{ width: '100%' }} data-bs-dismiss="modal">
+        <button
+          className="btn btn-primary"
+          type="button"
+          style={{ width: '100%' }}
+          data-bs-dismiss="modal"
+        >
           Submit
         </button>
       </div>
