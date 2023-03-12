@@ -6,13 +6,13 @@ import ModalBlog from './modal/ModalBlog';
 import './Style.scss';
 
 const Blog = () => {
-  const [posts, setPosts] = useState([]);
+  const [Posts, setPosts] = useState([]);
 
-  const { data: post, isLoading } = useFetch('https://jsonplaceholder.typicode.com/posts');
+  const { data: fetchPost, isLoading } = useFetch('https://jsonplaceholder.typicode.com/posts');
 
   useEffect(() => {
-    setPosts(post);
-  }, [posts])
+    setPosts(fetchPost);
+  }, [fetchPost])
 
   if (isLoading) {
     return (
@@ -24,19 +24,19 @@ const Blog = () => {
   console.log('checkasdfasdf');
 
   const addBlog = (Blog) => {
-    let blog = posts;
-    blog.unshift(Blog);
-    setPosts(blog);
+    let posts = [...fetchPost];
+    posts.unshift(Blog)
+    setPosts(posts);
   }
 
   return (
     <div className="root--panel">
       <h1>Post</h1>
 
-      <ModalBlog />
+      <ModalBlog addBlog={addBlog}/>
 
       <div className="root--panel__item">
-        {posts.map((item, index) => {
+        {Posts.map((item, index) => {
           return (
             <div className="card-class card text-bg-dark mb-3" key={index}>
               <h5 className="card-header" style={{ margin: '10px' }}>

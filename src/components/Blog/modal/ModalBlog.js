@@ -1,6 +1,9 @@
 import AddBlog from '../addBlog/AddBlog';
+import PropTypes from 'prop-types';
 
-const ModalBlog = () => {
+const ModalBlog = (props) => {
+  const {addBlog} = props;
+
   return (
     <>
       <button
@@ -33,7 +36,7 @@ const ModalBlog = () => {
             </div>
             <div className="modal-body">
               <div>
-                <AddBlog />
+                <AddBlog addBlog={addBlog}/>
               </div>
             </div>
           </div>
@@ -44,3 +47,7 @@ const ModalBlog = () => {
 };
 
 export default ModalBlog;
+
+ModalBlog.propTypes = {
+  addBlog: PropTypes.func
+}

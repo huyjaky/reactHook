@@ -1,8 +1,18 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const AddBlog = () => {
+const AddBlog = (props) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+
+  const {addBlog} = props;
+
+  const addNewBlog = () => {
+    addBlog({
+      title: title,
+      body: content
+    })
+  }
 
   return (
     <form>
@@ -45,6 +55,7 @@ const AddBlog = () => {
           type="button"
           style={{ width: '100%' }}
           data-bs-dismiss="modal"
+          onClick={() => addNewBlog()}
         >
           Submit
         </button>
@@ -54,3 +65,7 @@ const AddBlog = () => {
 };
 
 export default AddBlog;
+
+AddBlog.propTypes = {
+  addBlog: PropTypes.func
+}
