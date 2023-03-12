@@ -18,7 +18,7 @@ const ShowCovid19 = (props) => {
   }
 
   return (
-    <table className="table table-dark table-striped-columns">
+    <table className="table table-dark table-striped-columns" style={{ width: '80%' }}>
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -35,22 +35,30 @@ const ShowCovid19 = (props) => {
               <tr key={index}>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type="button">{index}</button>
+                    <button className="button-table" type="button">
+                      {index}
+                    </button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type="button">{item.name}</button>
+                    <button className="button-table" type="button">
+                      {item.name}
+                    </button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type="button">{item.death}</button>
+                    <button className="button-table" type="button">
+                      {item.death}
+                    </button>
                   </Link>
                 </th>
                 <th scope="row">
                   <Link to={`/covid19/${item.name}`}>
-                    <button type="button">{item.cases}</button>
+                    <button className="button-table" type="button">
+                      {item.cases}
+                    </button>
                   </Link>
                 </th>
               </tr>
