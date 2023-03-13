@@ -12,7 +12,7 @@ const ModalBlog = (props) => {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        Launch demo modal
+        + Add Blog
       </button>
       <div
         className="modal modal-dark fade"

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { SpinnerCircularSplit } from 'spinners-react';
 import useFetch from '../fetchData/fetchData';
 import ModalBlog from './modal/ModalBlog';
@@ -27,6 +28,7 @@ const Blog = () => {
     let posts = [...fetchPost];
     posts.unshift(Blog)
     setPosts(posts);
+    toast.success('Done!');
   }
 
   return (

@@ -1,16 +1,17 @@
-import logo from './logo.svg';
-import './App.scss';
-import Nav from './components/nav/Nav';
-import FormTodo from './components/TodoApps/FormTodo';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ShowCovid19 from './components/Covid19/ShowCovid19';
-import CountDownview from './components/CountDownClock/CountDownView';
-import Detail from './components/Covid19/CityDetail/Detail';
-import Blog from './components/Blog/Blog';
-import BlogDetail from './components/Blog/BlogDetail/BlogDetail';
-import AddBlog from './components/Blog/addBlog/AddBlog';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.scss';
+import AddBlog from './components/Blog/addBlog/AddBlog';
+import Blog from './components/Blog/Blog';
+import BlogDetail from './components/Blog/BlogDetail/BlogDetail';
+import CountDownview from './components/CountDownClock/CountDownView';
+import Detail from './components/Covid19/CityDetail/Detail';
+import ShowCovid19 from './components/Covid19/ShowCovid19';
+import Nav from './components/nav/Nav';
+import FormTodo from './components/TodoApps/FormTodo';
+import logo from './logo.svg';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -29,6 +30,18 @@ function App() {
             <Route path="/admin/blog/add-blog" element={<AddBlog />} />
           </Routes>
         </header>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     </BrowserRouter>
   );

@@ -1,6 +1,8 @@
 import './Style.scss';
 import ShowTodo from './showTodo/ShowTodo';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormTodo = () => {
   const [listTodo, setListTodo] = useState([]);
@@ -8,10 +10,10 @@ const FormTodo = () => {
   const [todo, setTodo] = useState('');
 
   const handleChangeTodo = (todo) => {
-    // console.log(item.content);
     let listTodo_ = listTodo.map((item) => {
       if (item.id == todo.id) {
         item.content = todo.content;
+        toast.success('Done!');
       }
       return item;
     });
@@ -22,6 +24,7 @@ const FormTodo = () => {
     let listTodo_ = listTodo.filter((item) => item.id !== todo_.id);
     // console.log(listTodo_);
     setListTodo(listTodo_);
+    toast.success('Done!');
   };
 
   const handleOnChange = (event) => {
@@ -31,6 +34,7 @@ const FormTodo = () => {
   const handleOnclick = () => {
     let todo_ = { id: Math.floor(Math.random() * (100 - 10)) + 1, content: todo };
     setListTodo([...listTodo, todo_]);
+    toast.success('Done!');
   };
 
   return (
