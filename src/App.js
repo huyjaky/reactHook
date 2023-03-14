@@ -12,6 +12,7 @@ import Nav from './components/nav/Nav';
 import FormTodo from './components/TodoApps/FormTodo';
 import logo from './logo.svg';
 import { ToastContainer } from 'react-toastify';
+import Youtube from './components/Blog/Youtube/Youtube';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetail />} />
             <Route path="/admin/blog/add-blog" element={<AddBlog />} />
+            <Route path="/youtube" element={<Youtube />} />
           </Routes>
         </header>
         <ToastContainer

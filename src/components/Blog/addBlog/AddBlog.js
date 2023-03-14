@@ -5,14 +5,14 @@ const AddBlog = (props) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
-  const {addBlog} = props;
+  const { addBlog } = props;
 
   const addNewBlog = () => {
     addBlog({
       title: title,
       body: content
-    })
-  }
+    });
+  };
 
   return (
     <form>
@@ -68,4 +68,4 @@ export default AddBlog;
 
 AddBlog.propTypes = {
   addBlog: PropTypes.func
-}
+};

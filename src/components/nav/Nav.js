@@ -42,6 +42,11 @@ const Nav = () => {
                   Blog
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/youtube" activeclassname="active" className="nav-link">
+                  Youtube API
+                </NavLink>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input

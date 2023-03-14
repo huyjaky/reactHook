@@ -2,7 +2,7 @@ import AddBlog from '../addBlog/AddBlog';
 import PropTypes from 'prop-types';
 
 const ModalBlog = (props) => {
-  const {addBlog} = props;
+  const { addBlog } = props;
 
   return (
     <>
@@ -36,7 +36,7 @@ const ModalBlog = (props) => {
             </div>
             <div className="modal-body">
               <div>
-                <AddBlog addBlog={addBlog}/>
+                <AddBlog addBlog={addBlog} />
               </div>
             </div>
           </div>
@@ -50,4 +50,4 @@ export default ModalBlog;
 
 ModalBlog.propTypes = {
   addBlog: PropTypes.func
-}
+};

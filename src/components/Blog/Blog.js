@@ -13,7 +13,7 @@ const Blog = () => {
 
   useEffect(() => {
     setPosts(fetchPost);
-  }, [fetchPost])
+  }, [fetchPost]);
 
   if (isLoading) {
     return (
@@ -26,16 +26,16 @@ const Blog = () => {
 
   const addBlog = (Blog) => {
     let posts = [...fetchPost];
-    posts.unshift(Blog)
+    posts.unshift(Blog);
     setPosts(posts);
     toast.success('Done!');
-  }
+  };
 
   return (
     <div className="root--panel">
       <h1>Post</h1>
 
-      <ModalBlog addBlog={addBlog}/>
+      <ModalBlog addBlog={addBlog} />
 
       <div className="root--panel__item">
         {Posts.map((item, index) => {
