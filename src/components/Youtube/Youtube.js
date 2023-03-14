@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ShowRS from './showRS/ShowRS';
 import './Style.scss';
 
@@ -21,9 +21,12 @@ const Youtube = () => {
         'q': search
       }
     });
-    await setData(res.data);
-    console.log(data);
+    setData(res.data.items);
   }
+
+  useEffect(() => {
+    console.log(data);
+  } , [data])
 
   return (
     <>
