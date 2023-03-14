@@ -1,8 +1,8 @@
 import './Style.scss';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const ShowRS = (props) => {
-
   const { data } = props;
 
   return (
@@ -17,8 +17,7 @@ const ShowRS = (props) => {
                     <iframe
                       width="850"
                       height="480"
-                      // src="https://www.youtube.com/embed/YbmvFEXZG7Q?list=PLncHg6Kn2JT4xzJyhXfmJ53dzwVbq-S_E"
-                      src="https://www.youtube.com/embed/KnsjOS95LLM"
+                      src={`https://www.youtube.com/embed/${item.id.videoId}`}
                       title="#30.2 Design Giao Diện &amp; Hoàn Thiện Chức Năng &#39;Search Youtube&#39; với Google APIs và React Hook"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,29 +28,34 @@ const ShowRS = (props) => {
                     className="col-md-8"
                     style={{ backgroundColor: 'white', borderRadius: '20px', marginLeft: '20px' }}
                   >
-                    <div className="card-body">
-                      <h5 className="card-title">Card title</h5>
-                      <p className="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to additional
-                        content. This content is a little bit longer.
-                      </p>
-                      <p className="card-text">
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                      </p>
+                    <div style={{ margin: 'auto' }}>
+                      <div className="card-body  text-black" style={{ textAlign: 'left' }}>
+                        <div className="card-title">
+                          <Link to={`/youtube/${item.id.videoId}`} style={{textDecoration: 'none', color: 'black'}}>
+                            {item.snippet.title}
+                          </Link>
+                        </div>
+                        <hr />
+                        <div className="card-text">
+                          <Link to={`/youtube/${item.id.videoId}`}  style={{textDecoration: 'none', color: 'black'}}>
+                            {item.snippet.description}
+                          </Link>
+                        </div>
+                        <hr />
+                        <div className="text-muted">{item.snippet.publishedAt}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          )
-        })
-      }
+          );
+        })}
     </>
   );
 };
-
 export default ShowRS;
 
-// ShowRS.propTypes = {
-//   data: PropTypes.array
-// }
+ShowRS.propTypes = {
+  data: PropTypes.array
+};

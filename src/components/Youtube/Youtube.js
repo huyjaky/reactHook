@@ -5,28 +5,26 @@ import ShowRS from './showRS/ShowRS';
 import './Style.scss';
 
 const Youtube = () => {
-
   const [search, setSearch] = useState('');
   const [data, setData] = useState();
 
-
   const handleYoutubeRs = async () => {
     let res = await axios({
-      "method": "GET",
-      "url": 'https://www.googleapis.com/youtube/v3/search',
-      "params": {
-        'part': 'snippet',
-        'maxResults': '50',
-        'key': 'AIzaSyCHk1sW7naiONdzG0h2iH99W2ivIr529K4',
-        'q': search
+      method: 'GET',
+      url: 'https://www.googleapis.com/youtube/v3/search',
+      params: {
+        part: 'snippet',
+        maxResults: '15',
+        key: 'AIzaSyCHk1sW7naiONdzG0h2iH99W2ivIr529K4',
+        q: search
       }
     });
     setData(res.data.items);
-  }
+  };
 
   useEffect(() => {
     console.log(data);
-  } , [data])
+  }, [data]);
 
   return (
     <>
@@ -43,12 +41,17 @@ const Youtube = () => {
             placeholder="Search"
             onChange={(event) => setSearch(event.target.value)}
           />
-          <button type="button" className="btn btn-primary" style={{ borderRadius: '20px' }} onClick={() => handleYoutubeRs()}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            style={{ borderRadius: '20px' }}
+            onClick={() => handleYoutubeRs()}
+          >
             Submit
           </button>
         </div>
       </form>
-      <ShowRS data={data}/>
+      <ShowRS data={data} />
     </>
   );
 };
