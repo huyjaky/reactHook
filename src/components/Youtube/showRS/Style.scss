@@ -1,0 +1,11 @@
+.layout-rs {
+  display: flex;
+  iframe {
+    border-radius: 20px;
+  }
+}
+
+.layout-rs>* {
+  display: flex;
+  flex: 1;
+}

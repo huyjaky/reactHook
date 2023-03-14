@@ -12,7 +12,7 @@ import Nav from './components/nav/Nav';
 import FormTodo from './components/TodoApps/FormTodo';
 import logo from './logo.svg';
 import { ToastContainer } from 'react-toastify';
-import Youtube from './components/Blog/Youtube/Youtube';
+import Youtube from './components/Youtube/Youtube';
 
 function App() {
   return (

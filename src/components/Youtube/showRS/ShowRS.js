@@ -1,10 +1,11 @@
+import './Style.scss';
 
 const ShowRS = () => {
   return (
     <>
-      <div>
-        <div className="card mb-3">
-          <div className="row g-0">
+      <div style={{width: '80vw'}}>
+        <div className="card mb-3 bg-transparent">
+          <div className="row g-0  layout-rs" >
             <div className="col-md-4">
               <iframe
                 width='850'
